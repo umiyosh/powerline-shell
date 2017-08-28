@@ -8,6 +8,10 @@ class DefaultColor:
     # be cleared
     RESET = -1
 
+    GKE_BG = 21
+    GKE_FG = 14
+    GKE_PRD_FG = 9
+
     GCP_BG = 31
     GCP_FG = 15
 

@@ -10,11 +10,7 @@ SEGMENTS = [
 # Set the terminal window title to user@host:dir
 #    'set_term_title',
 
-    'gcp',
-    'gcp',
-    'gcp',
-    'gcp',
-    'gcp',
+    'gke',
     'gcp',
     'newline',
 # Show current virtual environment (see http://www.virtualenv.org/)
