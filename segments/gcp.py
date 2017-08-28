@@ -1,5 +1,6 @@
+import os
+
 def add_gcp_segment(powerline):
-    import os
     gcpconfig = os.path.expanduser('~/.config/gcloud/active_config')
 
     if os.path.exists(gcpconfig):

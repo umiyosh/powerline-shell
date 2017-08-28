@@ -1,6 +1,7 @@
+import subprocess
+import re
+
 def add_gke_segment(powerline):
-    import subprocess
-    import re
     match = '.+cluster:.+'
     cluster_name = None
     prompt_prefix = '⎈ :'
