@@ -8,4 +8,4 @@ def add_gcp_segment(powerline):
     else:
         return
 
-    powerline.append(conf, Color.GCP_FG, Color.GCP_BG)
+    powerline.append('GCP:' + conf, Color.GCP_FG, Color.GCP_BG)
