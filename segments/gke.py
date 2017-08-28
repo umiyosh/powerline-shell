@@ -1,6 +1,7 @@
 import subprocess
 import re
 
+
 def add_gke_segment(powerline):
     match = '.+cluster:.+'
     cluster_name = None
@@ -17,7 +18,12 @@ def add_gke_segment(powerline):
         if re.match(match, result):
             cluster_name = result.split()[1]
 
+    fore_ground = Color.GKE_FG
+    back_ground = Color.GKE_BG
+    if 'prd' in cluster_name:
+        fore_ground = Color.GKE_PRD_FG
+        back_ground = Color.GKE_PRD_BG
     if cluster_name:
-        powerline.append(cluster_name, Color.GKE_FG, Color.GKE_BG)
+        powerline.append(cluster_name, fore_ground, back_ground)
     else:
         return
