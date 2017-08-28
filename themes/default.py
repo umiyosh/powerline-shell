@@ -8,6 +8,9 @@ class DefaultColor:
     # be cleared
     RESET = -1
 
+    GCP_BG = 31
+    GCP_FG = 15
+
     USERNAME_FG = 250
     USERNAME_BG = 240
     USERNAME_ROOT_BG = 124
