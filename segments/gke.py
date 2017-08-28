@@ -5,7 +5,7 @@ import re
 def add_gke_segment(powerline):
     match = '.+cluster:.+'
     cluster_name = None
-    prompt_prefix = '⎈ :'
+    prompt_prefix = '⎈ :'.decode('utf-8')
     kube_cmd = [
         'kubectl',
         'config',
@@ -24,6 +24,6 @@ def add_gke_segment(powerline):
         fore_ground = Color.GKE_PRD_FG
         back_ground = Color.GKE_PRD_BG
     if cluster_name:
-        powerline.append(cluster_name, fore_ground, back_ground)
+        powerline.append(prompt_prefix + cluster_name, fore_ground, back_ground)
     else:
         return
