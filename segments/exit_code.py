@@ -3,4 +3,4 @@ def add_exit_code_segment(powerline):
         return
     fg = Color.CMD_FAILED_FG
     bg = Color.CMD_FAILED_BG
-    powerline.append(' %s ' % str(powerline.args.prev_error), fg, bg)
+    powerline.append('ERROR:%s ' % str(powerline.args.prev_error), fg, bg)
