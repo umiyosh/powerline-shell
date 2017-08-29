@@ -49,7 +49,7 @@ SEGMENTS = [
     'fossil',
 
 # Show number of running jobs
-    'jobs',
+    #  'jobs',
 
 
 # Adds a line break
