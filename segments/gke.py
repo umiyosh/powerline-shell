@@ -5,7 +5,10 @@ import re
 def add_gke_segment(powerline):
     match = '.+cluster:.+'
     cluster_name = None
-    prompt_prefix = ' ⎈ : '
+    if not py3:
+        prompt_prefix = ' ⎈ : '.decode('utf-8')
+    else:
+        prompt_prefix = ' ⎈ : '
     kube_cmd = [
         'kubectl',
         'config',
