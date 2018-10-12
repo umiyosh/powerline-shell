@@ -3,8 +3,10 @@ import re
 
 
 def add_gke_segment(powerline):
-    match = '.+cluster:.+'
+    cluster_match = '.+cluster:.+'
+    namespace_match = '.+namespace:.+'
     cluster_name = None
+    namespace_name = None
     if not py3:
         prompt_prefix = ' ⎈ : '.decode('utf-8')
     else:
@@ -18,15 +20,22 @@ def add_gke_segment(powerline):
     cmd_result = subprocess.check_output(kube_cmd)
     results = cmd_result.decode('utf-8').split('\n')
     for result in results:
-        if re.match(match, result):
+        if re.match(cluster_match, result):
             cluster_name = result.split()[1] + ' '
+    for result in results:
+        if re.match(namespace_match, result):
+            namespace_name = result.split()[1] + ' '
 
-    fore_ground = Color.GKE_FG
-    back_ground = Color.GKE_BG
+    cluster_fore_ground = Color.GKE_FG
+    cluster_back_ground = Color.GKE_BG
+    namespace_fore_ground = Color.GKE_NS_FG
+    namespace_back_ground = Color.GKE_NS_BG
     if 'prd' in cluster_name:
-        fore_ground = Color.GKE_PRD_FG
-        back_ground = Color.GKE_PRD_BG
-    if cluster_name:
-        powerline.append(prompt_prefix + cluster_name, fore_ground, back_ground)
+        cluster_fore_ground = Color.GKE_PRD_FG
+        cluster_back_ground = Color.GKE_PRD_BG
+    if cluster_name and namespace_name:
+        powerline.append(prompt_prefix + cluster_name, cluster_fore_ground,
+                         cluster_back_ground)
+        powerline.append(cluster_name, fore_ground, back_ground)
     else:
         return
