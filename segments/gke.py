@@ -22,7 +22,6 @@ def add_gke_segment(powerline):
     for result in results:
         if re.match(cluster_match, result):
             cluster_name = result.split()[1] + ' '
-    for result in results:
         if re.match(namespace_match, result):
             namespace_name = result.split()[1] + ' '
 
@@ -37,6 +36,9 @@ def add_gke_segment(powerline):
         #  if cluster_name :
         powerline.append(prompt_prefix + cluster_name, cluster_fore_ground,
                          cluster_back_ground)
+        powerline.append(namespace_name, namespace_fore_ground,
+                         namespace_back_ground)
+    elif cluster_name:
         powerline.append(namespace_name, namespace_fore_ground,
                          namespace_back_ground)
     else:
