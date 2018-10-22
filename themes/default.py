@@ -10,7 +10,7 @@ class DefaultColor:
 
     GKE_BG = 21
     GKE_FG = 14
-    GKE_NS_BG = 29
+    GKE_NS_BG = 23
     GKE_NS_FG = 14
     GKE_PRD_BG = 124
     GKE_PRD_FG = 15

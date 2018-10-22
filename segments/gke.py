@@ -34,8 +34,10 @@ def add_gke_segment(powerline):
         cluster_fore_ground = Color.GKE_PRD_FG
         cluster_back_ground = Color.GKE_PRD_BG
     if cluster_name and namespace_name:
+        #  if cluster_name :
         powerline.append(prompt_prefix + cluster_name, cluster_fore_ground,
                          cluster_back_ground)
-        powerline.append(cluster_name, fore_ground, back_ground)
+        powerline.append(namespace_name, namespace_fore_ground,
+                         namespace_back_ground)
     else:
         return
